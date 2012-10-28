@@ -1,0 +1,109 @@
+# system.prop for holiday
+#
+
+persist.fuse_sdcard=true
+
+ro.sf.lcd_density=240
+
+# RIL properties
+mobiledata.interfaces=rmnet0,rmnet1,gprs,ppp0
+rild.libpath=/system/lib/libril-qc-qmi-1.so
+rild.libargs=-d /dev/smd0
+DEVICE_PROVISIONED=1
+ro.telephony.ril_class=HTCQualcommRIL
+ro.baseband.arch=msm
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+persist.rild.ril.ltedr=0
+persist.rild.ril.ltedrtable=max_retries=infinite,10000
+
+# system props for the data modules
+#
+ro.use_data_netmgrd=true
+persist.data_netmgrd_nint=11
+
+# Holiday RIL  
+ro.ril.enable.dtm = 0	  	
+ro.ril.gprsclass = 12	  	
+ro.ril.hsdpa.category = 14	  	
+ro.ril.hsupa.category = 6	  	
+ro.ril.hsxpa = 4	  	
+ro.ril.enable.amr.wideband=1	  	
+ro.ril.enable.r8fd=1	  	
+ro.ril.radio.svn=5  	
+ro.ril.fast.dormancy.rule=1  	
+ro.ril.disable.mcc.filter=1  	
+ro.ril.disable.fd.plmn.prefix=23402,23410,23411,23420
+ro.telephony.default_network=0
+ro.ril.ciq=1
+persist.pdn.profile=pta
+ro.ril.disable.cpc=1
+ro.ril.enable.sdr=1
+ro.ril.enable.gea3=1
+ro.ril.enable.ucsq=2
+ro.ril.set.mtusize=1410
+ro.ril.multirab.throttling=1
+htc.audio.global.state=0
+htc.audio.q6.topology=0
+ro.ril.enable.prl.recognition = 1
+ro.ril.att.feature = 1
+ro.ril.enable.amr.wideband=0
+
+# system props for telephony modules
+ro.config.lte=true
+# device supports simultaneous 1x voice + LTE
+# ro.config.svlte1x=true
+telephony.lteOnGsmDevice=1
+
+# audio
+persist.audio.fluence.mode=endfire
+persist.audio.vr.enable=false
+media.a1026.nsForVoiceRec=0
+media.a1026.enableA1026=0
+htc.audio.alt.enable=0
+htc.audio.hac.enable=1
+# lpa.decode=true
+# lpa.tunnel=true
+# lpa.use-stagefright=true
+
+# wifi
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=60
+
+# This is a high density device with more memory, so larger vm heaps for it.
+dalvik.vm.heapgrowthlimit=64m
+dalvik.vm.heapsize=128m
+dalvik.vm.heapstartsize=5m
+
+#Modify MTU from 1500 to 1472 on 3G network
+ro.ril.set.mtu1472 = 1
+
+# For the default value of agps
+ro.ril.def.agps.mode = 2
+
+# System prop for switching gps driver to qmi
+persist.gps.qmienabled=true
+
+# for BT HCI transport
+ro.qualcomm.bt.hci_transport=smd
+
+# System property for cabl
+ro.qualcomm.cabl=0
+
+# support sdcard2
+ro.sdcard2 = 1
+# For internal fat file system
+ro.phone_fat = 1
+
+# UMS
+persist.sys.usb.config=mass_storage,adb
+
+# Make rmt_storage start at init
+ro.emmc = 1
