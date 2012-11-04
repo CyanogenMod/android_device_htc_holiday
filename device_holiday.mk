@@ -17,9 +17,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit common msm8660 configs
 $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
 
-# Inherit qcom proprietary blobs
-$(call inherit-product, vendor/qcom/proprietary/qcom-vendor.mk)
-
 DEVICE_PACKAGE_OVERLAYS += device/htc/holiday/overlay
 
 # Boot ramdisk setup
@@ -128,13 +125,8 @@ PRODUCT_COPY_FILES += \
 # Filesystem management tools
 PRODUCT_PACKAGES += \
    make_ext4fs \
-   FileManager \
    e2fsck \
    setup_fs
-
-# Build Filemanager for Holiday
-PRODUCT_PACKAGES += \
-   FileManager
 
 # Permissions
 PRODUCT_COPY_FILES += \
