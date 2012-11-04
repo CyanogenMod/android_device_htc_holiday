@@ -37,8 +37,8 @@ BOARD_PAGE_SIZE := 2048
 
 #TARGET_PREBUILT_KERNEL := device/htc/holiday/prebuilt/kernel
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/holiday/recovery/recoverykernel
-TARGET_KERNEL_CONFIG := kangbang_defconfig
-TARGET_KERNEL_SOURCE := kernel/htc/KangBanged-Kernel/
+TARGET_KERNEL_CONFIG := holiday_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/msm8660
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 960
@@ -52,6 +52,9 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := holiday
 
 # RIL
 BOARD_USES_LEGACY_RIL := true
+
+# USB
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 
 # FileSystem
 TARGET_USERIMAGES_USE_EXT4 := true
