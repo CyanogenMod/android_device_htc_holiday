@@ -103,8 +103,8 @@ lib/libwvm.so
 lib/libmmparser_divxdrmlib.so
 lib/libmmparser.so
 lib/libmmosal.so
-lib/libmm-color-converter.so
-lib/libDvixDrm.so
+lib/libmm-color-convertor.so
+lib/libDivxDrm.so
 
 # Qualcomm/HTC common libs
 lib/libqmiservices.so
