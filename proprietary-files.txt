@@ -27,11 +27,12 @@ bin/snd3254
 bin/sound
 bin/sound8x60
 bin/thermald
+bin/load-modem.sh
 bin/wireless_modem
 bin/zchgd
 
 # Audio
-firmware/default_bak.acdb
+etc/firmware/default_bak.acdb
 lib/hw/audio.a2dp.default.so
 lib/hw/audio.primary.default.so
 lib/hw/audio_policy.default.so
@@ -44,6 +45,7 @@ lib/libaudcal.so
 lib/libacdbmapper.so
 lib/libacdbloader.so
 lib/liba2dp.so
+etc/vpimg
 
 # Camera
 lib/hw/camera.default.so
@@ -55,7 +57,7 @@ lib/libchromatix_s5k3h1gx_zsl.so
 lib/libchromatix_s5k3h1gx_preview.so
 lib/libchromatix_s5k3h1gx_zsl.so
 lib/libchromatix_s5k3h1gx_hfr.so
-lib/libchromatix_s5k3h2yx_default_video.so
+lib/libchromatix_s5k3h1gx_default_video.so
 lib/libchromatix_ov8830_zsl.so
 lib/libchromatix_ov8830_preview.so
 lib/libchromatix_ov8830_hfr.so
@@ -66,7 +68,6 @@ lib/libchromatix_mt9d015_default_video.so
 lib/libchromatix_imx105_zsl.so
 lib/libchromatix_imx105_preview.so
 lib/libchromatix_imx105_default_video.so
-lib/libcameraservice.so
 lib/libcamerapp.so
 lib/libcameraface.so
 lib/libcamera_client.so
@@ -95,6 +96,15 @@ lib/libOpenMAXAL.so
 lib/libgsl.so
 lib/libC2D2.so
 lib/libc2d2_z180.so
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a300_pfp.fw
+etc/firmware/a300_pm4.fw
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
+etc/firmware/yamato_pfp.fw
+etc/firmware/yamato_pm4.fw
 
 # GPS
 lib/hw/gps.holiday.so
@@ -159,10 +169,10 @@ lib/libmllite.so
 lib/libv8.so
 
 # Wifi / BT
-firmware/BCM4330B1.hcd
-firmware/fw_bcm4330_apsta_b1.bin
-firmware/fw_bcm4330_apsta_b2.bin
-firmware/fw_bcm4330_b1.bin
-firmware/fw_bcm4330_b2.bin
-firmware/fw_bcm4330_p2p_b1.bin
-firmware/fw_bcm4330_p2p_b2.bin
+etc/firmware/BCM4330B1.hcd
+etc/firmware/fw_bcm4330_apsta_b1.bin
+etc/firmware/fw_bcm4330_apsta_b2.bin
+etc/firmware/fw_bcm4330_b1.bin
+etc/firmware/fw_bcm4330_b2.bin
+etc/firmware/fw_bcm4330_p2p_b1.bin
+etc/firmware/fw_bcm4330_p2p_b2.bin
