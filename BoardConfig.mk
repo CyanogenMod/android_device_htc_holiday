@@ -58,6 +58,9 @@ BOARD_USES_LEGACY_RIL := true
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 
+# Wifi
+-include device/htc/msm8660-common/bcmdhd.mk
+
 # FileSystem
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
