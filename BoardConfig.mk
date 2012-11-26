@@ -42,6 +42,9 @@ BOARD_PAGE_SIZE := 2048
 TARGET_KERNEL_CONFIG := holiday_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/msm8660
 
+# Use libril in the device tree
+BOARD_PROVIDES_LIBRIL := true
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 960
 TARGET_SCREEN_WIDTH := 540
