@@ -118,38 +118,13 @@ enum msm_audio_g729a_frame_type {
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  MVS_G729A_ERASURE
 };
-struct min_max_rate {
- uint32_t min_rate;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- uint32_t max_rate;
-};
 struct msm_audio_mvs_config {
  uint32_t mvs_mode;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
  uint32_t rate_type;
- struct min_max_rate min_max_rate;
  uint32_t dtx_mode;
 };
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define MVS_MAX_VOC_PKT_SIZE 640
-struct gsm_header {
- uint8_t bfi;
- uint8_t sid;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- uint8_t taf;
- uint8_t ufi;
-};
-struct q6_msm_audio_mvs_frame {
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- union {
- uint32_t frame_type;
- uint32_t packet_rate;
- struct gsm_header gsm_frame_type;
-/* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
- } header;
- uint32_t len;
- uint8_t voc_pkt[MVS_MAX_VOC_PKT_SIZE];
-};
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 struct msm_audio_mvs_frame {
  uint32_t frame_type;
