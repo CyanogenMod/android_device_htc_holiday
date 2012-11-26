@@ -212,5 +212,7 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">7</integer>
 
-     
+    <!-- The default iface on which to monitor data use -->
+    <string name="config_datause_iface">rmnet_sdio0</string>
+ 
 </resources>
