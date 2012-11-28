@@ -2011,7 +2011,7 @@ static int responseRilSignalStrength(Parcel &p,
         p.writeInt32(p_cur->ATT_SignalStrength.dbm);
         p.writeInt32(p_cur->ATT_SignalStrength.ecno);
         /* LTE Signal strength of 99 means LTE disabled */
-        if (p_cur->LTE_SignalStrength.signalStrength == 99 {
+        if (p_cur->LTE_SignalStrength.signalStrength == 99) {
             p.writeInt32(-1);
         } else {
             p.writeInt32(p_cur->LTE_SignalStrength.signalStrength);

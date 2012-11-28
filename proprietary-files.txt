@@ -1,17 +1,14 @@
 # Configuration Files
+etc/vpimg
 
 # Executable files
 bin/awb_camera
 bin/bma150_usr
-bin/cam_ins_spmo
 bin/charging
 bin/dmagent
 bin/htcbatt
-bin/htc_ebdlogd
-bin/htc_ext4_fsck
 bin/ip
 bin/ks
-bin/logcat2
 bin/mm-abl-daemon
 bin/mpdecision
 bin/netmgrd
@@ -19,36 +16,33 @@ bin/netsharing
 bin/qcks
 bin/qmiproxy
 bin/qmuxd
-bin/rild
 bin/rmt_storage
-bin/snd
-bin/snd8k
-bin/snd3254
-bin/sound
-bin/sound8x60
 bin/thermald
-bin/load-modem.sh
 bin/wireless_modem
 bin/zchgd
 
 # Audio
 etc/firmware/default_bak.acdb
 lib/hw/audio.a2dp.default.so
-lib/hw/audio.primary.default.so
-lib/hw/audio_policy.default.so
 lib/libhtc_acoustic.so
 lib/libaudioalsa.so
-lib/libaudio.so
-lib/libaudcalwb.so
-lib/libaudcal_nel.so
 lib/libaudcal.so
 lib/libacdbmapper.so
 lib/libacdbloader.so
-lib/liba2dp.so
-etc/vpimg
 
 # Camera
 lib/hw/camera.default.so
+lib/libcamerapp.so
+lib/libcameraface.so
+lib/libposteffect.so
+lib/libOlaEngine.so
+lib/liboemcamera.so
+lib/libmmjpeg.so
+lib/libmmipl.so
+lib/libgemini.so
+lib/libidl.so
+
+# Chromatix
 lib/libchromatix_s5k3h2yx_zsl.so
 lib/libchromatix_s5k3h2yx_preview.so
 lib/libchromatix_s5k3h2yx_hfr.so
@@ -68,34 +62,20 @@ lib/libchromatix_mt9d015_default_video.so
 lib/libchromatix_imx105_zsl.so
 lib/libchromatix_imx105_preview.so
 lib/libchromatix_imx105_default_video.so
-lib/libcamerapp.so
-lib/libcameraface.so
-lib/libcamera_client.so
-lib/libsurfaceflinger_client.so
-lib/libposteffect.so
-lib/libOlaEngine.so
-lib/liboemcamera.so
-lib/libmmjpeg.so
-lib/libmmipl.so
-lib/libmm-abl.so
-lib/libgemini.so
 
 # Graphics
-lib/egl/egl.cfg
 lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
-lib/egl/libGLES_android.so
 lib/egl/libGLESv1_CM_adreno200.so
 lib/egl/libGLESv2_adreno200.so
-lib/egl/libGLESv2S3D_adreno200.so
 lib/egl/libq3dtools_adreno200.so
 lib/libsc-a2xx.so
 lib/libOpenVG.so
-lib/libOpenSLES.so
-lib/libOpenMAXAL.so
 lib/libgsl.so
 lib/libC2D2.so
 lib/libc2d2_z180.so
+
+# Misc Libraries
 etc/firmware/a225_pfp.fw
 etc/firmware/a225_pm4.fw
 etc/firmware/a225p5_pm4.fw
@@ -106,56 +86,24 @@ etc/firmware/leia_pm4_470.fw
 etc/firmware/yamato_pfp.fw
 etc/firmware/yamato_pm4.fw
 
-# GPS
-lib/hw/gps.holiday.so
-lib/libloc_api-rpc-qc.so
-
 # Media libraries
-lib/libwvm.so
-lib/libmmparser_divxdrmlib.so
-lib/libmmparser.so
-lib/libmmosal.so
 lib/libmm-color-convertor.so
-lib/libDivxDrm.so
+lib/liboncrpc.so
+lib/libdsm.so
 
-# Qualcomm/HTC common libs
+# Radio
+lib/libdiag.so
+lib/libdsi_netctrl.so
+lib/libdsutils.so
+lib/libnetmgr.so
+lib/libnv.so
 lib/libqmiservices.so
 lib/libqmi.so
 lib/libqdp.so
-lib/libidl.so
-lib/libdsutils.so
-lib/libdssock.so
-lib/libdss.so
-lib/libdsnet.so
-lib/libdsm.so
-lib/libdsi_netctrl.so
-lib/libdnshostprio.so
-lib/libdll.so
-lib/libdiag.so
-lib/libcryp98.so
-lib/tcp-connections.so
-lib/qnet-plugin.so
-lib/pp_proc_plugin.so
-lib/libtcpfinaggr.so
-lib/libnv.so
-lib/libnetmonitor.so
-lib/libnetlink.so
-lib/libqueue.so
-lib/libpphwrprovider.so
-lib/libpphwr.so
-lib/libpbmlib.so
-lib/liboncrpc.so
-lib/libcneqmiutils.so
-lib/libcneapiclient.so
-
-# Radio
-lib/libril-qcril-hook-oem.so
-lib/libril-qc-qmi-1.so
-#lib/libril.so
 lib/libqc-opt.so
-lib/libnetmgr.so
-lib/libhtc_ril_switch.so
-lib/libhtc_ril.so
+lib/libqueue.so
+lib/libril-qc-qmi-1.so
+lib/libril-qcril-hook-oem.so
 
 # Sensors
 lib/hw/sensors.holiday.so
@@ -167,12 +115,3 @@ lib/libmllite.so
 
 # Webkit
 lib/libv8.so
-
-# Wifi / BT
-etc/firmware/BCM4330B1.hcd
-etc/firmware/fw_bcm4330_apsta_b1.bin
-etc/firmware/fw_bcm4330_apsta_b2.bin
-etc/firmware/fw_bcm4330_b1.bin
-etc/firmware/fw_bcm4330_b2.bin
-etc/firmware/fw_bcm4330_p2p_b1.bin
-etc/firmware/fw_bcm4330_p2p_b2.bin
