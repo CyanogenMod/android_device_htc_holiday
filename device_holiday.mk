@@ -26,6 +26,11 @@ PRODUCT_COPY_FILES += \
     device/htc/holiday/ramdisk/ueventd.holiday.rc:root/ueventd.holiday.rc \
     device/htc/holiday/ramdisk/fstab.holiday:root/fstab.holiday
 
+# GPS and Light
+PRODUCT_PACKAGES += \
+    gps.holiday \
+    lights.holiday
+
 # GPS config
 PRODUCT_COPY_FILES += device/common/gps/gps.conf_US:system/etc/gps.conf
 
@@ -121,12 +126,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/holiday/idc/cy8c-touchscreen.idc:system/usr/idc/cy8c-touchscreen.idc \
     device/htc/holiday/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-   make_ext4fs \
-   e2fsck \
-   setup_fs
 
 # Permissions
 PRODUCT_COPY_FILES += \
