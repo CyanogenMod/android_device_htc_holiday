@@ -46,14 +46,14 @@ TARGET_KERNEL_SOURCE := kernel/htc/msm8660
 TARGET_SCREEN_HEIGHT := 960
 TARGET_SCREEN_WIDTH := 540
 
+# Use libril in the device tree
+BOARD_PROVIDES_LIBRIL := true
+
 # Touchscreen
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := holiday
-
-# RIL
-BOARD_USES_LEGACY_RIL := true
 
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
