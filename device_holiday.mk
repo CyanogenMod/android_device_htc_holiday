@@ -31,10 +31,6 @@ PRODUCT_PACKAGES += \
     gps.holiday \
     lights.holiday
 
-#Camera
-PRODUCT_PACKAGES += \
-   libcameraservice
-
 # HTC BT audio config
 PRODUCT_COPY_FILES += device/htc/holiday/dsp/AudioBTID.csv:system/etc/AudioBTID.csv
 
