@@ -39,7 +39,7 @@ PRODUCT_PACKAGES += \
    libcameraservice
 
 # HTC BT audio config
-PRODUCT_COPY_FILES += device/htc/holiday/configs/AudioBTID.csv:system/etc/AudioBTID.csv
+PRODUCT_COPY_FILES += device/htc/holiday/dsp/AudioBTID.csv:system/etc/AudioBTID.csv
 
 # vold config
 PRODUCT_COPY_FILES += \
