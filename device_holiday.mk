@@ -40,7 +40,7 @@ PRODUCT_COPY_FILES += device/htc/holiday/dsp/AudioBTID.csv:system/etc/AudioBTID.
 
 # vold config
 PRODUCT_COPY_FILES += \
-    device/htc/holiday/configs/vold.fstab:system/etc/vold.fstab
+    device/htc/holiday/vold.fstab:system/etc/vold.fstab
 
 # Sound DSP
 PRODUCT_COPY_FILES += \
