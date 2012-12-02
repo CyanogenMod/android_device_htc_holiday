@@ -31,9 +31,6 @@ PRODUCT_PACKAGES += \
     gps.holiday \
     lights.holiday
 
-# GPS config
-PRODUCT_COPY_FILES += device/common/gps/gps.conf_US:system/etc/gps.conf
-
 #Camera
 PRODUCT_PACKAGES += \
    libcameraservice
