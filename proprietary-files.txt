@@ -22,8 +22,6 @@ bin/wireless_modem
 bin/zchgd
 
 # Audio
-etc/firmware/default_bak.acdb
-lib/hw/audio.a2dp.default.so
 lib/libhtc_acoustic.so
 lib/libaudioalsa.so
 lib/libaudcal.so
@@ -108,7 +106,6 @@ lib/libril-qcril-hook-oem.so
 
 # Sensors
 lib/hw/sensors.holiday.so
-lib/hw/lights.msm8660.so
 lib/libmpl_jni.so
 lib/libmpl.so
 lib/libmlplatform.so
@@ -116,3 +113,12 @@ lib/libmllite.so
 
 # Webkit
 lib/libv8.so
+
+# Wifi
+etc/firmware/BCM4330B1.hcd
+etc/firmware/fw_bcm4330_apsta_b1.bin
+etc/firmware/fw_bcm4330_apsta_b2.bin
+etc/firmware/fw_bcm4330_b1.bin
+etc/firmware/fw_bcm4330_b2.bin
+etc/firmware/fw_bcm4330_p2p_b1.bin
+etc/firmware/fw_bcm4330_p2p_b2.bin
