@@ -36,10 +36,6 @@ BOARD_PAGE_SIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=holiday no_console_suspend=1
 TARGET_KERNEL_CONFIG := holiday_defconfig
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 960
-TARGET_SCREEN_WIDTH := 540
-
 # Use libril in the device tree
 BOARD_PROVIDES_LIBRIL := true
 

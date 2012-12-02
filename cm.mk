@@ -1,12 +1,10 @@
-
 # Specify phone tech
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Preload bootanimation
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_NAME := vertical-540x960
+TARGET_BOOTANIMATION_NAME := 540
 
 # Inherit device configuration
 $(call inherit-product, device/htc/holiday/device_holiday.mk)
