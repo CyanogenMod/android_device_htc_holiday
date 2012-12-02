@@ -31,14 +31,10 @@
 TARGET_BOOTLOADER_BOARD_NAME := holiday
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=holiday no_console_suspend=1
 BOARD_KERNEL_BASE := 0x48000000
 BOARD_PAGE_SIZE := 2048
-
-#TARGET_PREBUILT_KERNEL := device/htc/holiday/prebuilt/kernel
-#TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/holiday/recovery/recoverykernel
+BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=holiday no_console_suspend=1
 TARGET_KERNEL_CONFIG := holiday_defconfig
-TARGET_KERNEL_SOURCE := kernel/htc/msm8660
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 960

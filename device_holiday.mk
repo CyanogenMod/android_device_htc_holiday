@@ -109,16 +109,6 @@ PRODUCT_COPY_FILES += \
     device/htc/holiday/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
     device/htc/holiday/keylayout/holiday-keypad.kl:system/usr/keylayout/holiday-keypad.kl
 
-# Kernel
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/htc/holiday/prebuilt/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
 # Input device config
 PRODUCT_COPY_FILES += \
     device/htc/holiday/idc/cy8c-touchscreen.idc:system/usr/idc/cy8c-touchscreen.idc \
