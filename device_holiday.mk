@@ -26,10 +26,9 @@ PRODUCT_COPY_FILES += \
     device/htc/holiday/ramdisk/ueventd.holiday.rc:root/ueventd.holiday.rc \
     device/htc/holiday/ramdisk/fstab.holiday:root/fstab.holiday
 
-# GPS and Light
+# GPS
 PRODUCT_PACKAGES += \
-    gps.holiday \
-    lights.holiday
+    gps.holiday
 
 # HTC BT audio config
 PRODUCT_COPY_FILES += device/htc/holiday/dsp/AudioBTID.csv:system/etc/AudioBTID.csv
