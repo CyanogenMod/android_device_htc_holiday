@@ -51,7 +51,7 @@ PRODUCT_COPY_FILES += \
     device/htc/holiday/dsp/CodecDSPID_WA.txt:system/etc/CodecDSPID_WA.txt \
     device/htc/holiday/dsp/CodecDSPID_WB.txt:system/etc/CodecDSPID_WB.txt \
     device/htc/holiday/dsp/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
-    device/htc/holiday/dsp/TPA2051_BEATS_HW.csv:system/etc/TPA2051_BEATS_HW.csv \
+    device/htc/holiday/dsp/TPA2051_CFG_BEATS_HW.csv:system/etc/TPA2051_CFG_BEATS_HW.csv \
     device/htc/holiday/dsp/TPA2051_CFG_XC.csv:system/etc/TPA2051_CFG_XC.csv
 
 # Sound Image DSP
