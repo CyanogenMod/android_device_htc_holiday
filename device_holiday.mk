@@ -151,5 +151,5 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 PRODUCT_DEVICE := holiday
 PRODUCT_NAME := holiday
 PRODUCT_BRAND := htc
-PRODUCT_MODEL := Vivid
+PRODUCT_MODEL := Vivid 4G
 PRODUCT_MANUFACTURER := HTC
