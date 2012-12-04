@@ -113,11 +113,3 @@ lib/libmllite.so
 
 # Webkit
 lib/libv8.so
-
-# Wifi
-etc/firmware/fw_bcm4330_apsta_b1.bin
-etc/firmware/fw_bcm4330_apsta_b2.bin
-etc/firmware/fw_bcm4330_b1.bin
-etc/firmware/fw_bcm4330_b2.bin
-etc/firmware/fw_bcm4330_p2p_b1.bin
-etc/firmware/fw_bcm4330_p2p_b2.bin

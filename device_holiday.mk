@@ -33,6 +33,9 @@ PRODUCT_PACKAGES += \
 # Bluetooth
 $(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)
 
+# Wifi
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
+
 # HTC BT audio config
 PRODUCT_COPY_FILES += device/htc/holiday/dsp/AudioBTID.csv:system/etc/AudioBTID.csv
 
