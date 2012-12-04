@@ -30,6 +30,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     gps.holiday
 
+# Bluetooth
+$(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)
+
 # HTC BT audio config
 PRODUCT_COPY_FILES += device/htc/holiday/dsp/AudioBTID.csv:system/etc/AudioBTID.csv
 
