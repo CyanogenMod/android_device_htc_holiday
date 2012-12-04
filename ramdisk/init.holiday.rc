@@ -17,7 +17,7 @@ on early-init
 on emmc-fs
     mkdir /devlog 0700 root root
 
-    #msm8660: firmware
+    # msm8660: firmware
     rm /vendor
     mkdir /vendor                   0771 system system
     mkdir /vendor/etc               0771 system system
@@ -26,7 +26,7 @@ on emmc-fs
     mkdir /vendor/firmware/adsp     0771 system system
     mkdir /vendor/firmware/misc_mdm 0771 system system
 
-    #mount the whole thing
+    # mount the whole thing
     mount_all fstab.holiday
 
     chown radio diag /dev/block/mmcblk0p16
@@ -103,7 +103,6 @@ on post-fs-data
     chown bluetooth bluetooth /sys/module/htc_bdaddress/parameters/bdaddress
     setprop ro.bt.bdaddr_path /sys/module/htc_bdaddress/parameters/bdaddress
 
-
     # allow system to modify ksm control files
     chown root system /sys/kernel/mm/ksm/pages_to_scan
     chmod 0664 /sys/kernel/mm/ksm/pages_to_scan
@@ -157,7 +156,6 @@ on post-fs-data
     chown system system /sys/devices/virtual/htc_accessory/fm/flag
     chown system system /sys/devices/virtual/htc_accessory/tty/flag
 
-
     # for modem link
     chown system system /sys/module/serial/parameters/modem_enabled
     chown system system /dev/ttyHSUSB0
@@ -181,7 +179,7 @@ on post-fs-data
     chown system system /sys/class/optical_sensors/proximity/ps_led
     chown system system /sys/class/optical_sensors/proximity/ps_test_mode
 
-    #Set SUID bit for iproute2 ip tool
+    # Set SUID bit for iproute2 ip tool
     chmod 4755 /system/bin/ip
 
     # port-bridge
@@ -191,10 +189,6 @@ on post-fs-data
     # for charging function
     chown radio radio /sys/module/htc_battery_8x60/parameters/phone_call
     chmod 0660 /sys/module/htc_battery_8x60/parameters/phone_call
-
-    #for CIQ ipc
-    #mkdir /app-cache/ciq 0711 root system
-    #mkdir /app-cache/ciq/socket 0777 root system
 
     # for Invense MPU3050
     chmod 0664 /dev/mpu
@@ -206,27 +200,10 @@ on post-fs-data
 
     symlink /mnt/sdcard/ext_sd /sdcard2
 
-    # Discretix DRM
-#    mkdir /data/DxDrm
-#    mkdir /data/DxDrm/fuse
-#    mkdir /data/DxDrm/Credentials
-#    mkdir /data/DxDrm/Credentials/PlayReady
-#    chmod 555 /data/DxDrm
-#    copy /etc/DxPrdyProvisionObf.pkg /data/DxDrm/Credentials/PlayReady/DxPrdyProvisionObf.pkg
-#    copy /etc/DxDrmConfig_Server.txt /data/DxDrm/DxDrmConfig_Server.txt
-
     # Overwrite framework low memory killer setting
     write /sys/module/lowmemorykiller/parameters/minfree 2048,3072,4096,6144,8192,12288
     write /sys/module/lowmemorykiller/parameters/minfile 2048,3072,4096,6144,8192,12288
     write /sys/module/lowmemorykiller/parameters/check_filepages 1
-
-    # for disabling IPv6 over mobile network.
-    #write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 1
-    #write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 1
-    #write /proc/sys/net/ipv6/conf/rmnet2/disable_ipv6 1
-    #write /proc/sys/net/ipv6/conf/rmnet_sdio0/disable_ipv6 1
-    #write /proc/sys/net/ipv6/conf/rmnet_sdio1/disable_ipv6 1
-    #write /proc/sys/net/ipv6/conf/rmnet_sdio2/disable_ipv6 1
 
 # set diag permissions
     chown radio radio /dev/diag
@@ -270,42 +247,20 @@ on post-fs-data
 
 # Services start here
 
-# Force loading of modem and Q6 images
-service load-modem /system/bin/load-modem.sh
-    class main
-    oneshot
+# Make sure we startup btld before hcid
+# Set target address to emulator host loopback IF
+# Limit baudrate to 460800 to ensure reliable uart operation
+# service btld /system/bin/btld -lpm 1 -hb 3000000
+#     class main
+#     user root
+#     group bluetooth net_bt_admin
+#     disabled
+#     oneshot
 
-service kickstart /system/bin/qcks l
-    class main
-    oneshot
-
-service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf -puse_p2p_group_interface=1
-    user root
-    group wifi inet
-    class main
-    socket wpa_wlan0 dgram 660 wifi wifi
-    disabled
-    oneshot
-
-service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
-    class main
-    disabled
-    oneshot
-
-service dhcpcd_p2p /system/bin/dhcpcd -aABKL
-	class main
-	disabled
-	oneshot
-
-service iprenew_wlan0 /system/bin/dhcpcd -n
-	class main
-	disabled
-	oneshot
-
-service iprenew_p2p /system/bin/dhcpcd -n
-	class main
-	disabled
-	oneshot
+# for USB internet sharing
+# service udhcpd /system/bin/udhcpd
+#     disabled
+#     oneshot
 
 # bugreport is triggered by the KEY_VOL-UP and KEY_VOL-DOWN keycodes
 service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
@@ -313,16 +268,20 @@ service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
     oneshot
     keycodes 114 115
 
-
-# Make sure we startup btld before hcid
-# Set target address to emulator host loopback IF
-# Limit baudrate to 460800 to ensure reliable uart operation
-service btld /system/bin/btld -lpm 1 -hb 3000000
+service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
     class main
-    user root
-    group bluetooth net_bt_admin
     disabled
     oneshot
+
+service dhcpcd_p2p /system/bin/dhcpcd -aABKL
+    class main
+    disabled
+    oneshot
+
+service dmagent /system/bin/dmagent -N
+    socket dmagent stream 660 root radio
+    user root
+    group radio cache inet misc
 
 service hciattach /system/bin/brcm_patchram_plus --enable_hci \
         --tosleep 50000 --baudrate 3000000 --use_baudrate_for_download \
@@ -333,70 +292,55 @@ service hciattach /system/bin/brcm_patchram_plus --enable_hci \
     disabled
     oneshot
 
-# for USB internet sharing
-#service udhcpd /system/bin/udhcpd
-#	disabled
-#	oneshot
-
-service netsharing_on /system/bin/netsharing net on
-        class main
-	disabled
-	oneshot
-
-service netsharing_off /system/bin/netsharing net off
-        class main
-	disabled
-	oneshot
-
-service netsharing_pass /system/bin/netsharing net_pass on
-        class main
-	disabled
-	oneshot
-
-#service srv_ser2net /system/bin/ser2net -n
-#    class main
-#    disabled
-
-#on property:service.ser2net.enable=1
-#    start srv_ser2net
-
-#on property:service.ser2net.enable=0
-#    stop srv_ser2net
-
-service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p25 /dev/block/mmcblk0p26 NULL NULL /dev/block/mmcblk0p27 /dev/block/mmcblk0p28 /dev/block/mmcblkp20
+service htcbatt /system/bin/htcbatt
+    class main
     user root
+
+service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
     disabled
+    oneshot
 
-on property:ro.emmc=1
-    start rmt_storage
+service iprenew_p2p /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
 
-service dmagent /system/bin/dmagent -N
-    socket dmagent stream 660 root radio
-    user root
-    group radio cache inet misc
+service kickstart /system/bin/qcks l
+    class main
+    oneshot
 
-# for modem link
 service modem /system/xbin/wireless_modem
     user system
     group system radio
     disabled
 
-# for modem link
-on property:service.modem.enable=1
-	start modem
-
-# for modem link
-on property:service.modem.enable=0
-	stop modem
-
-service zchgd_offmode /system/bin/zchgd -pseudooffmode
+service mpdecision /system/bin/mpdecision --Nw 5.4 --Ts 350 --no_sleep --avg_comp --single_core_while_panel_off
     class main
     user root
     disabled
 
-service zchgd_onmode /system/bin/zchgd -onmode
+service mpld /system/bin/mpld
     class main
-    user root
+    user system
+    oneshot
+
+service netmgrd /system/bin/netmgrd
+    class main
+
+service netsharing_on /system/bin/netsharing net on
+    class main
+    disabled
+    oneshot
+
+service netsharing_off /system/bin/netsharing net off
+    class main
+    disabled
+    oneshot
+
+service netsharing_pass /system/bin/netsharing net_pass on
+    class main
+    disabled
     oneshot
 
 service qmuxd /system/bin/qmuxd
@@ -410,12 +354,9 @@ service qmiproxy /system/bin/qmiproxy
     group radio
     disabled
 
-service netmgrd /system/bin/netmgrd
-    class main
-
-on property:ro.use_data_netmgrd=false
-    # netmgr not supported on specific target
-    stop netmgrd
+service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p25 /dev/block/mmcblk0p26 NULL NULL /dev/block/mmcblk0p27 /dev/block/mmcblk0p28 /dev/block/mmcblkp20
+    user root
+    disabled
 
 service ril-daemon /system/bin/rild
     class main
@@ -424,47 +365,39 @@ service ril-daemon /system/bin/rild
     user root
     group radio cache inet misc audio qcom_oncrpc diag system
 
-service mpld /system/bin/mpld
-    class main
-    user system
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -c /data/misc/wifi/wpa_supplicant.conf
+    user root
+    group wifi inet
+    socket wpa_wlan0 dgram 660 wifi wifi
+    disabled
     oneshot
 
-service htcbatt /system/bin/htcbatt
-    class main
-    user root
-
-#service dcvs0 /system/bin/dcvs --cpu=0 --slacktime=16
-#    user root
-#    disabled
-
-#service dcvs1 /system/bin/dcvs --cpu=1 --slacktime=16
-#    user root
-#    disabled
-
-service mpdecision /system/bin/mpdecision --Nw 5.4 --Ts 350 --no_sleep --avg_comp --single_core_while_panel_off
+service zchgd_offmode /system/bin/zchgd -pseudooffmode
     class main
     user root
     disabled
+
+service zchgd_onmode /system/bin/zchgd -onmode
+    class main
+    user root
+    oneshot
 
 on property:init.svc.bootanim=stopped
     start mpdecision
-#    start thermald
 
-service htc_ebdlogd /system/bin/htc_ebdlogd -s -k -P 7
-    class main
-    user root
-    disabled
-    oneshot
-    ioprio idle 0
+on property:ro.emmc=1
+    start rmt_storage
 
-service htc_ebdlogd_rel /system/bin/htc_ebdlogd -s -k
-    class main
-    user root
-    disabled
-    oneshot
-    ioprio idle 0
+on property:ro.use_data_netmgrd=false
+    stop netmgrd
 
-on proprty:service.adb.root=1
+on property:service.modem.enable=1
+    start modem
+
+on property:service.modem.enable=0
+    stop modem
+
+on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
     restart adbd
     write /sys/class/android_usb/android0/enable 1
