@@ -111,5 +111,14 @@ lib/libmpl.so
 lib/libmlplatform.so
 lib/libmllite.so
 
+# Wifi
+etc/firmware/BCM4330B1.hcd
+etc/firmware/fw_bcm4330_apsta_b1.bin
+etc/firmware/fw_bcm4330_apsta_b2.bin
+etc/firmware/fw_bcm4330_b1.bin
+etc/firmware/fw_bcm4330_b2.bin
+etc/firmware/fw_bcm4330_p2p_b1.bin
+etc/firmware/fw_bcm4330_p2p_b2.bin
+
 # Webkit
 lib/libv8.so
