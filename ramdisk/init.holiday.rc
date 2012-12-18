@@ -290,8 +290,13 @@ service dmagent /system/bin/dmagent -N
     user root
     group radio cache inet misc
 
-service hciattach /system/bin/brcm_patchram_plus --enable_hci \
-        --tosleep 50000 --baudrate 3000000 --use_baudrate_for_download \
+# HCI kickstart so brcm_patchram_plus will work. Clean up later.
+service hci-kickstart /system/bin/hciattach /dev/ttyHS0 any
+    class main
+    oneshot
+
+service hciattach /system/bin/logwrapper /system/bin/brcm_patchram_plus --enable_hci \
+        --enable_lpm --tosleep 50000 --baudrate 3000000 --use_baudrate_for_download \
         --patchram /system/vendor/firmware/bcm4330.hcd /dev/ttyHS0
     class main
     user bluetooth

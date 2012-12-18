@@ -39,6 +39,9 @@ TARGET_KERNEL_CONFIG := holiday_defconfig
 # Use libril in the device tree
 BOARD_PROVIDES_LIBRIL := true
 
+# Target specific overrides
+TARGET_SPECIFIC_HEADER_PATH := device/htc/holiday/overlay/include
+
 # Touchscreen
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
