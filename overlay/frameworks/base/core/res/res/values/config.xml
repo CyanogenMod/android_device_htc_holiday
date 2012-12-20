@@ -33,6 +33,9 @@
     <!-- disable menu hard key in non-pattern lockscreen -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
+    <!-- Android Beam on = false, off = true -->
+    <bool name="config_animateScreenLights">false</bool>
+
     <!-- TODO Component name of the service providing network location support. -->
     <string name="config_networkLocationProviderPackageName">com.google.android.location.NetworkLocationProvider</string>
 
