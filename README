@@ -1,25 +1,2 @@
 HTC Holiday Device Tree
 
-Working:
-Wifi
-Audio
-Call
-SMS
-Touchscreen
-Auto-Rotation
-Proximity Sensor
-
-Broken:
-Mobile Data (2G/3G/LTE)
-Bluetooth
-GPS
-MMS (due to Mobile Data)
-Camera/Video Camera/Panorama
-Watching Video
-In-Call microphone on AT&T
-
-Unknown:
-Wifi Hotspot
-USB Tethering
-Bluetooth Tethering
-
